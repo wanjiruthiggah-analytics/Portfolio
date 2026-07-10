@@ -1,1054 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wanjiru Thiggah — Data Analyst & Marketing Strategist based in Nairobi, Kenya. Specialising in Power BI, SQL, and Excel with marketing context that makes data genuinely useful.">
-    <meta name="theme-color" content="#A84F24">
-    <meta name="color-scheme" content="light">
-    <title>Wanjiru Thiggah — Data Analyst & Marketing Strategist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wanjiru Thiggah — Data Analyst & Marketing Strategist based in Nairobi, Kenya. Specialising in Power BI, SQL, and Excel with marketing context that makes data genuinely useful.">
+<meta name="theme-color" content="#A84F24">
+<meta name="color-scheme" content="light">
+<title>Wanjiru Thiggah — Data Analyst & Marketing Strategist</title>
 
-    <!-- Preconnect for font performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Google Fonts: Poppins (Headings) + Inter (Body) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome 6 (Free) - Premium modern icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<!-- Phosphor Icons — premium duotone icon set for UI glyphs -->
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
 
-    <!-- Structured Data (JSON-LD) for SEO -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Wanjiru Thiggah",
-            "jobTitle": "Data Analyst & Marketing Strategist",
-            "url": "https://wanjiruthiggah.com",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Nairobi",
-                "addressCountry": "KE"
-            },
-            "knowsAbout": ["Data Analysis", "Power BI", "SQL", "Excel", "Digital Marketing", "Marketing Analytics"],
-            "alumniOf": {
-                "@type": "EducationalOrganization",
-                "name": "Moringa School"
-            }
-        }
-    </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Wanjiru Thiggah",
+    "jobTitle": "Data Analyst & Marketing Strategist",
+    "url": "https://wanjiruthiggah.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Nairobi", "addressCountry": "KE" },
+    "knowsAbout": ["Data Analysis", "Power BI", "SQL", "Excel", "Digital Marketing", "Marketing Analytics"],
+    "alumniOf": { "@type": "EducationalOrganization", "name": "Moringa School" }
+}
+</script>
 
-    <style>
-        /* ===== BRAND PALETTE (EXACT MATCH) ===== 
-           Primary Cream: #E9DDD2
-           Warm Terracotta: #A84F24
-           Deep Charcoal: #11131D
-           Soft Beige: #CFB8A7
-           Muted Taupe: #9A7260
-        */
-        :root {
-            /* Primary Colors - Brand Palette */
-            --primary-cream: #E9DDD2;
-            --primary-terracotta: #A84F24;
-            --primary-charcoal: #11131D;
-            --primary-beige: #CFB8A7;
-            --primary-taupe: #9A7260;
-            
-            /* Color assignments per spec */
-            --color-bg-page: var(--primary-cream);
-            --color-bg-card: var(--primary-beige);
-            --color-border: var(--primary-beige);
-            --color-heading: var(--primary-charcoal);
-            --color-text-body: var(--primary-charcoal);
-            --color-text-secondary: var(--primary-taupe);
-            --color-button-primary: var(--primary-terracotta);
-            --color-button-hover: #8a3d1a; /* darkened version of #A84F24 */
-            --color-link: var(--primary-terracotta);
-            --color-link-hover: var(--primary-taupe);
-            --color-footer-bg: var(--primary-charcoal);
-            --color-footer-text: var(--primary-cream);
-            
-            /* Typography */
-            --font-heading: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-body: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            
-            /* UI Elements (preserved) */
-            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-            --transition: all 0.25s ease;
-        }
+<style>
+    /* ===== BRAND PALETTE (unchanged — primary source of truth) ===== */
+    :root {
+        --primary-cream: #E9DDD2;
+        --primary-terracotta: #A84F24;
+        --primary-charcoal: #11131D;
+        --primary-beige: #CFB8A7;
+        --primary-taupe: #9A7260;
 
-        /* No dark mode override - only light mode with brand palette */
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        --color-bg-page: var(--primary-cream);
+        --color-bg-card: var(--primary-beige);
+        --color-border: var(--primary-beige);
+        --color-heading: var(--primary-charcoal);
+        --color-text-body: var(--primary-charcoal);
+        --color-text-secondary: var(--primary-taupe);
+        --color-button-primary: var(--primary-terracotta);
+        --color-button-hover: #8a3d1a;
+        --color-footer-bg: var(--primary-charcoal);
+        --color-footer-text: var(--primary-cream);
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 5rem;
-        }
+        --font-heading: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --font-body: 'Inter', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-        body {
-            font-family: var(--font-body);
-            background-color: var(--color-bg-page);
-            color: var(--color-text-body);
-            overflow-x: hidden;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        --shadow-sm: 0 2px 10px rgba(17, 19, 29, 0.06);
+        --shadow-md: 0 10px 30px rgba(17, 19, 29, 0.10);
+        --shadow-pill: 0 3px 0 rgba(17, 19, 29, 0.10);
+        --radius: 14px;
+    }
 
-        /* Skip to content */
-        .skip-to-content {
-            position: absolute;
-            top: -100%;
-            left: 1rem;
-            z-index: 200;
-            padding: 0.75rem 1.5rem;
-            background: var(--color-button-primary);
-            color: #fff;
-            font-family: var(--font-body);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: top 0.25s ease;
-        }
-        .skip-to-content:focus {
-            top: 0;
-            outline: 2px solid var(--color-button-primary);
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Focus ring using terracotta */
-        :focus-visible {
-            outline: 2px solid var(--color-button-primary);
-            outline-offset: 3px;
-        }
+    html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.2rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(233, 221, 210, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--color-border);
-        }
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+    }
 
-        .nav-logo {
-            font-family: var(--font-heading);
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            color: var(--color-heading);
-            text-decoration: none;
-        }
+    body {
+        font-family: var(--font-body);
+        background-color: var(--color-bg-page);
+        color: var(--color-text-body);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
+    :focus-visible { outline: 2px solid var(--color-button-primary); outline-offset: 3px; }
 
-        .nav-links a {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-            position: relative;
-            padding: 0.3rem 0;
-        }
+    .skip-to-content {
+        position: absolute; top: -100%; left: 1rem; z-index: 200;
+        padding: 0.75rem 1.5rem; background: var(--color-button-primary); color: #fff;
+        font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+        text-decoration: none; border-radius: 0 0 6px 6px; transition: top 0.25s ease;
+    }
+    .skip-to-content:focus { top: 0; }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1.5px;
-            background: var(--color-button-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            transform: scaleX(1);
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--color-button-primary);
-        }
+    .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 4.5rem 1.5rem 3rem;
+    }
 
-        .nav-badge {
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            background: var(--color-button-primary);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 2px;
-            white-space: nowrap;
-        }
+    /* ===== HERO / PROFILE CARD ===== */
+    .profile {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
 
-        /* Hamburger */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-            flex-direction: column;
-            gap: 5px;
-            width: 36px;
-            height: 28px;
-            justify-content: center;
-            align-items: center;
-        }
-        .hamburger span {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--color-heading);
-            transition: transform 0.3s ease, opacity 0.2s ease;
-        }
-        .hamburger[aria-expanded="true"] span:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-        .hamburger[aria-expanded="true"] span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger[aria-expanded="true"] span:nth-child(3) {
-            transform: translateY(-7px) rotate(-45deg);
-        }
+    .avatar-wrap { position: relative; width: 84px; margin: 0 auto 1.5rem; }
+    .avatar {
+        width: 84px; height: 84px;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        background: linear-gradient(150deg, var(--primary-terracotta), var(--primary-taupe));
+        color: #fff;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
+        box-shadow: var(--shadow-md);
+        border: 3px solid var(--color-bg-page);
+        outline: 1px solid var(--color-border);
+    }
+    .avatar-badge {
+        position: absolute;
+        bottom: -2px; right: -2px;
+        width: 26px; height: 26px;
+        border-radius: 50%;
+        background: var(--color-bg-page);
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: var(--shadow-sm);
+    }
+    .avatar-badge i { color: var(--color-button-primary); font-size: 1.05rem; }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            position: relative;
-        }
+    .profile-name {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--color-heading);
+        margin-bottom: 0.9rem;
+        letter-spacing: -0.01em;
+    }
+    .profile-name .wave { display: inline-block; animation: wave 2.4s ease-in-out infinite; transform-origin: 70% 70%; }
+    @keyframes wave {
+        0%, 100% { transform: rotate(0deg); }
+        10%, 30% { transform: rotate(14deg); }
+        20% { transform: rotate(-6deg); }
+        40% { transform: rotate(0deg); }
+    }
 
-        .hero-left {
-            padding: 10rem 4rem 4rem 5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    .profile-bio {
+        font-size: 0.85rem;
+        line-height: 1.85;
+        color: var(--color-text-secondary);
+        max-width: 46ch;
+        margin: 0 auto 2rem;
+    }
+    .profile-bio strong { color: var(--color-button-primary); font-weight: 600; }
 
-        .hero-tag {
-            font-size: 0.68rem;
-            font-weight: 500;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-button-primary);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        .hero-tag::before {
-            content: '';
-            display: block;
-            width: 2.5rem;
-            height: 1px;
-            background: var(--color-button-primary);
-        }
+    .pill-row {
+        display: flex;
+        justify-content: center;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+    }
 
-        .hero-name {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
-            line-height: 1.0;
-            letter-spacing: -0.02em;
-            color: var(--color-heading);
-            margin-bottom: 0.5rem;
-        }
-        .hero-name span {
-            font-style: italic;
-            color: var(--color-button-primary);
-        }
+    .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.7rem 1.15rem;
+        background: var(--color-bg-page);
+        border: 1px solid var(--color-border);
+        border-radius: 30px;
+        color: var(--color-heading);
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.74rem;
+        letter-spacing: 0.01em;
+        text-decoration: none;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+    .pill:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-button-primary);
+        box-shadow: var(--shadow-md);
+    }
+    .pill.pill-solid {
+        background: var(--color-button-primary);
+        border-color: var(--color-button-primary);
+        color: #fff;
+    }
+    .pill.pill-solid:hover { background: var(--color-button-hover); }
+    .pill i { font-size: 1rem; color: var(--color-button-primary); }
+    .pill.pill-solid i { color: #fff; }
 
-        .hero-title {
-            font-family: var(--font-body);
-            font-weight: 400;
-            font-size: 1.15rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.5;
-        }
+    /* ===== SECTION LABEL ===== */
+    .section-label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--color-button-primary);
+        margin: 3.5rem 0 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .section-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--color-border);
+    }
+    .section-label:first-of-type { margin-top: 0; }
 
-        .hero-bio {
-            font-size: 0.82rem;
-            font-weight: 400;
-            line-height: 1.9;
-            color: var(--color-text-secondary);
-            max-width: 38ch;
-            margin-bottom: 3rem;
-        }
+    /* ===== PROJECT CARDS ===== */
+    .project-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1rem;
+    }
 
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
+    .project-card {
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        min-height: 230px;
+        display: flex;
+        align-items: flex-end;
+        padding: 1.8rem;
+        color: #fff;
+        text-decoration: none;
+        isolation: isolate;
+        box-shadow: var(--shadow-sm);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .project-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
-        .btn-primary {
-            display: inline-block;
-            padding: 0.85rem 2rem;
-            background: var(--color-button-primary);
-            color: white;
-            font-family: var(--font-body);
-            font-weight: 600;
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: background 0.2s;
-            border-radius: 2px;
-        }
-        .btn-primary:hover {
-            background: var(--color-button-hover);
-        }
+    .project-card::before {
+        content: '';
+        position: absolute; inset: 0; z-index: -2;
+        background: var(--bg-grad);
+    }
+    .project-card::after {
+        content: '';
+        position: absolute; inset: 0; z-index: -1;
+        background-image:
+            repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 34px),
+            linear-gradient(180deg, rgba(17,19,29,0.15) 0%, rgba(17,19,29,0.75) 100%);
+    }
 
-        .btn-outline {
-            display: inline-block;
-            padding: 0.85rem 2rem;
-            border: 1.5px solid var(--color-button-primary);
-            color: var(--color-button-primary);
-            font-family: var(--font-body);
-            font-weight: 600;
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.2s;
-            border-radius: 2px;
-            background: transparent;
-        }
-        .btn-outline:hover {
-            background: var(--color-button-primary);
-            color: white;
-        }
+    .project-content { max-width: 78%; }
+    .project-title {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.25;
+        margin-bottom: 0.6rem;
+    }
+    .project-desc {
+        font-size: 0.75rem;
+        line-height: 1.7;
+        color: rgba(255,255,255,0.82);
+        margin-bottom: 1.1rem;
+    }
+    .project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #fff;
+        color: var(--color-heading);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 0.55rem 1rem;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .project-btn i { font-size: 0.85rem; }
 
-        .hero-right {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-bg-card);
-            overflow: hidden;
-        }
+    /* individual card gradients, derived from brand palette */
+    .g1 { --bg-grad: linear-gradient(135deg, #3a3126, #11131D); }
+    .g2 { --bg-grad: linear-gradient(135deg, #5c2a18, #11131D); }
+    .g3 { --bg-grad: linear-gradient(135deg, #3d3530, #5c4636); }
+    .g4 { --bg-grad: linear-gradient(135deg, #4a2f22, #2a1b12); }
+    .g5 { --bg-grad: linear-gradient(135deg, #574236, #A84F24); }
 
-        .hero-graphic {
-            position: relative;
-            width: 340px;
-            height: 440px;
-        }
+    /* ===== CERTIFICATIONS ===== */
+    .cert-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+    }
+    .cert-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        background: var(--color-bg-page);
+        border: 1px solid var(--color-border);
+        padding: 0.6rem 1rem;
+        border-radius: 30px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: var(--color-heading);
+        box-shadow: var(--shadow-sm);
+    }
+    .cert-badge .cert-icon {
+        width: 24px; height: 24px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid var(--color-border);
+        color: var(--color-button-primary);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+    .cert-badge .cert-icon svg { width: 15px; height: 15px; display: block; }
+    .cert-note {
+        font-size: 0.72rem;
+        color: var(--color-text-secondary);
+        margin-top: 1rem;
+        font-style: italic;
+    }
 
-        .hero-card {
-            position: absolute;
-            background: var(--color-bg-page);
-            border: 1px solid var(--color-border);
-            padding: 1.5rem;
-            box-shadow: 4px 4px 0 var(--color-button-primary);
-            border-radius: 2px;
-        }
-        .hero-card-1 { top: 40px; left: 30px; width: 220px; animation: float1 6s ease-in-out infinite; }
-        .hero-card-2 { top: 160px; right: 10px; width: 200px; animation: float2 7s ease-in-out infinite; }
-        .hero-card-3 { bottom: 60px; left: 50px; width: 230px; animation: float1 8s ease-in-out infinite reverse; }
+    /* ===== CONTACT ===== */
+    .contact-text {
+        font-size: 0.82rem;
+        color: var(--color-text-secondary);
+        max-width: 46ch;
+        margin-bottom: 1.4rem;
+        line-height: 1.85;
+    }
+    .social-row {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1.3rem;
+    }
+    .social-icon {
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        border: 1px solid var(--color-border);
+        color: var(--color-heading);
+        text-decoration: none;
+        transition: all 0.2s ease;
+        background: var(--color-bg-page);
+    }
+    .social-icon:hover {
+        border-color: var(--color-button-primary);
+        color: #fff;
+        background: var(--color-button-primary);
+        transform: translateY(-2px);
+    }
 
-        @keyframes float1 {
-            0%, 100% { transform: translateY(0px) rotate(-1deg); }
-            50% { transform: translateY(-12px) rotate(0deg); }
-        }
-        @keyframes float2 {
-            0%, 100% { transform: translateY(0px) rotate(2deg); }
-            50% { transform: translateY(-8px) rotate(1deg); }
-        }
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+        display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+        margin: 3.5rem auto 0;
+        padding: 0.65rem 1.3rem;
+        background: transparent;
+        border: 1px solid var(--color-border);
+        border-radius: 30px;
+        color: var(--color-text-secondary);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .back-to-top:hover { border-color: var(--color-button-primary); color: var(--color-button-primary); }
 
-        .card-label {
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-button-primary);
-            margin-bottom: 0.6rem;
-        }
-        .card-value {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 2rem;
-            color: var(--color-heading);
-            line-height: 1;
-        }
-        .card-sub {
-            font-size: 0.65rem;
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            margin-top: 0.3rem;
-        }
-        .card-bar-row {
-            display: flex;
-            gap: 4px;
-            margin-top: 0.8rem;
-        }
-        .card-bar {
-            height: 28px;
-            background: var(--color-bg-card);
-            border-radius: 2px;
-            flex: 1;
-            position: relative;
-            overflow: hidden;
-        }
-        .card-bar-fill {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--color-button-primary);
-            border-radius: 2px;
-            animation: grow 1.5s ease-out forwards;
-        }
-        @keyframes grow {
-            from { height: 0; }
-            to { height: var(--h); }
-        }
+    footer {
+        text-align: center;
+        padding: 2rem 1.5rem 2.5rem;
+        font-size: 0.68rem;
+        color: var(--color-text-secondary);
+        letter-spacing: 0.04em;
+    }
 
-        .location-tag {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            z-index: 2;
-        }
-        .location-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--color-button-primary);
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.4); }
-        }
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1.5rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-        .section-number {
-            font-family: var(--font-body);
-            font-weight: 500;
-            font-size: 0.65rem;
-            color: var(--color-button-primary);
-            letter-spacing: 0.1em;
-        }
-        .section-title {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            color: var(--color-heading);
-            letter-spacing: -0.02em;
-        }
-        .section-line {
-            flex: 1;
-            height: 1px;
-            background: var(--color-border);
-            margin-left: 1rem;
-        }
-
-        /* About */
-        .about-section {
-            background: var(--color-bg-card);
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 5rem;
-            align-items: start;
-        }
-        .about-text p {
-            font-size: 0.9rem;
-            font-weight: 400;
-            line-height: 2;
-            color: var(--color-text-secondary);
-            margin-bottom: 1.5rem;
-        }
-        .about-text p strong {
-            color: var(--color-button-primary);
-            font-weight: 600;
-        }
-        .about-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-        .stat-item {
-            border-left: 3px solid var(--color-button-primary);
-            padding-left: 1.5rem;
-        }
-        .stat-number {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: var(--color-heading);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--color-text-secondary);
-            margin-top: 0.3rem;
-        }
-
-        /* Skills */
-        .skills-section {
-            background: var(--color-charcoal-alt, #1A1C24);
-            color: #fff;
-        }
-        /* Using the actual charcoal background for skills section as it needs contrast */
-        .skills-section {
-            background: var(--primary-charcoal);
-        }
-        .skills-section .section-title { color: #fff; }
-        .skills-section .section-number { color: var(--primary-taupe); }
-        .skills-section .section-line { background: rgba(255, 255, 255, 0.15); }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2px;
-        }
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            position: relative;
-            transition: background 0.3s;
-        }
-        .skill-card:hover { background: rgba(255, 255, 255, 0.1); }
-        .skill-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 2.5rem;
-            right: 2.5rem;
-            height: 2px;
-            background: var(--color-button-primary);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .skill-card:hover::after { transform: scaleX(1); }
-        .skill-icon { font-size: 1.8rem; margin-bottom: 1rem; display: block; }
-        .skill-name {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #fff;
-            margin-bottom: 0.8rem;
-        }
-        .skill-desc {
-            font-size: 0.72rem;
-            font-weight: 400;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.2rem;
-        }
-        .skill-tag {
-            font-size: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.6);
-            padding: 0.25rem 0.65rem;
-            border-radius: 2px;
-        }
-
-        /* Projects */
-        .projects-section { background: var(--color-bg-page); }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-        .project-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border);
-            padding: 2.5rem;
-            position: relative;
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--color-button-primary);
-            transform: scaleY(0);
-            transition: transform 0.35s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-        }
-        .project-card:hover::before { transform: scaleY(1); }
-        .project-num {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-button-primary);
-            margin-bottom: 1rem;
-        }
-        .project-title {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.4rem;
-            color: var(--color-heading);
-            margin-bottom: 1rem;
-        }
-        .project-desc {
-            font-size: 0.78rem;
-            font-weight: 400;
-            line-height: 1.9;
-            color: var(--color-text-secondary);
-            margin-bottom: 1.5rem;
-        }
-        .project-highlights {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-        .project-highlights li {
-            font-size: 0.73rem;
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            padding-left: 1rem;
-            position: relative;
-            line-height: 1.6;
-        }
-        .project-highlights li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--color-button-primary);
-        }
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-        .tech-pill {
-            font-size: 0.6rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            background: var(--color-bg-page);
-            color: var(--color-text-secondary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 2px;
-        }
-
-        /* Experience */
-        .experience-section { background: var(--color-bg-card); }
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            position: relative;
-            padding-left: 3rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0.5rem;
-            top: 1rem;
-            bottom: 1rem;
-            width: 1px;
-            background: var(--color-border);
-        }
-        .timeline-item {
-            position: relative;
-            padding-bottom: 3rem;
-            padding-left: 2rem;
-        }
-        .timeline-item:last-child { padding-bottom: 0; }
-        .timeline-dot {
-            position: absolute;
-            left: -2.5rem;
-            top: 0.4rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--color-button-primary);
-            border: 2px solid var(--color-bg-card);
-        }
-        .timeline-date {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--color-button-primary);
-            margin-bottom: 0.5rem;
-        }
-        .timeline-role {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: var(--color-heading);
-            margin-bottom: 0.3rem;
-        }
-        .timeline-company {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--color-text-secondary);
-            margin-bottom: 1rem;
-        }
-        .timeline-body {
-            font-size: 0.78rem;
-            font-weight: 400;
-            line-height: 1.9;
-            color: var(--color-text-secondary);
-        }
-
-        /* Recommendation - using terracotta as background */
-        .rec-section {
-            background: var(--color-button-primary);
-        }
-        .rec-section .section-title { color: white; }
-        .rec-section .section-number { color: rgba(255, 255, 255, 0.7); }
-        .rec-section .section-line { background: rgba(255, 255, 255, 0.25); }
-        .rec-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 3rem;
-            max-width: 780px;
-            border-radius: 2px;
-        }
-        .rec-quote {
-            font-family: var(--font-body);
-            font-weight: 400;
-            font-style: italic;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: white;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-        .rec-quote::before {
-            content: '"';
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.15);
-            position: absolute;
-            top: -1rem;
-            left: 2rem;
-            line-height: 1;
-        }
-        .rec-name {
-            font-family: var(--font-body);
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: white;
-        }
-        .rec-role {
-            font-size: 0.7rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.5;
-        }
-
-        /* Contact */
-        .contact-section {
-            background: var(--color-bg-page);
-            text-align: center;
-            padding: 7rem 5rem;
-        }
-        .contact-headline {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--color-heading);
-            margin-bottom: 1rem;
-        }
-        .contact-headline em {
-            color: var(--color-button-primary);
-            font-style: italic;
-        }
-        .contact-sub {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            max-width: 45ch;
-            margin: 0 auto 3rem;
-        }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 4rem;
-        }
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 0.75rem 1.5rem;
-            border: 1px solid var(--color-border);
-            color: var(--color-text-body);
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: all 0.2s;
-            border-radius: 2px;
-            background: transparent;
-        }
-        .contact-link:hover {
-            border-color: var(--color-button-primary);
-            color: var(--color-button-primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--color-footer-bg);
-            color: var(--color-footer-text);
-            padding: 2rem 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.65rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-        .footer-name {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--color-footer-text);
-            text-transform: none;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 99;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--color-button-primary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .back-to-top:hover { background: var(--color-button-hover); }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive (preserved exactly) */
-        @media (max-width: 1024px) {
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
-            .about-section { gap: 3rem; }
-        }
-        @media (max-width: 900px) {
-            nav { padding: 1rem 1.5rem; }
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 280px;
-                height: 100vh;
-                flex-direction: column;
-                background: var(--color-bg-page);
-                padding: 6rem 2rem 2rem;
-                gap: 1.5rem;
-                transition: right 0.35s;
-                z-index: 101;
-                border-left: 1px solid var(--color-border);
-            }
-            .nav-links.open { right: 0; }
-            .hamburger { display: flex; }
-            .hero { grid-template-columns: 1fr; }
-            .hero-left { padding: 8rem 2rem 3rem; }
-            .hero-right { display: none; }
-            section { padding: 4rem 2rem; }
-            .about-section { grid-template-columns: 1fr; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .contact-section { padding: 4rem 2rem; }
-            footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
-        }
-        @media (max-width: 480px) {
-            .hero-left { padding: 7rem 1.25rem 2.5rem; }
-            .hero-name { font-size: 2.8rem; }
-            .hero-cta { flex-direction: column; }
-            .btn-primary, .btn-outline { width: 100%; text-align: center; }
-        }
-    </style>
+    @media (max-width: 480px) {
+        .wrap { padding: 3rem 1.1rem 2rem; }
+        .project-content { max-width: 92%; }
+        .pill-row { gap: 0.5rem; }
+        .pill { font-size: 0.7rem; padding: 0.62rem 0.95rem; }
+    }
+</style>
 </head>
 <body>
 
-    <a href="#about" class="skip-to-content">Skip to Content</a>
-    <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+<a href="#projects" class="skip-to-content">Skip to Content</a>
 
-    <nav>
-        <a href="#" class="nav-logo">Wanjiru Thiggah</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <span class="nav-badge">Open to Work</span>
-        <button class="hamburger" id="hamburgerBtn" aria-expanded="false" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
+<div class="wrap">
 
-    <main>
-        <section class="hero">
-            <div class="hero-left">
-                <p class="hero-tag">Data Analyst · Nairobi, Kenya</p>
-                <h1 class="hero-name">Wanjiru<br><span>Thiggah</span></h1>
-                <p class="hero-title">Data Analyst &amp; Digital Marketing Professional</p>
-                <p class="hero-bio">I don't just clean data and build dashboards — I bring marketing context that makes analysis genuinely useful. Helping teams make better decisions with data.</p>
-                <div class="hero-cta">
-                    <a href="#projects" class="btn-primary">View Projects</a>
-                    <a href="#contact" class="btn-outline">Get in Touch</a>
-                </div>
+    <!-- ============ HERO / PROFILE ============ -->
+    <section class="profile">
+        <div class="avatar-wrap">
+            <div class="avatar" aria-hidden="true">WT</div>
+            <div class="avatar-badge" aria-hidden="true"><i class="ph-duotone ph-seal-check"></i></div>
+        </div>
+        <h1 class="profile-name">Hi, I'm Wanjiru Thiggah <span class="wave">👋</span></h1>
+        <p class="profile-bio">
+            I'm a <strong>Data Analyst &amp; Digital Marketing Professional</strong> based in Nairobi, Kenya.
+            I use SQL, Excel, and Power BI to turn raw data into decisions — and because I've worked in
+            marketing, I bring <strong>business context</strong> that most analysts miss. Currently open
+            to Data Analyst and Marketing Analyst roles, on-site, hybrid, or remote.
+        </p>
+        <nav class="pill-row" aria-label="Primary">
+            <a href="#projects" class="pill"><i class="ph-duotone ph-squares-four"></i> My Projects</a>
+            <a href="#resume" class="pill"><i class="ph-duotone ph-file-text"></i> My Resume</a>
+            <a href="#certifications" class="pill"><i class="ph-duotone ph-medal"></i> Certifications</a>
+            <a href="#contact" class="pill pill-solid"><i class="ph-duotone ph-envelope-simple-open"></i> Contact Me</a>
+        </nav>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <div class="section-label fade-in" id="projects">Projects</div>
+    <div class="project-stack">
+
+        <a href="#" target="_blank" rel="noopener" class="project-card g1 fade-in">
+            <div class="project-content">
+                <h3 class="project-title">Retail Sales Dashboard — Power BI</h3>
+                <p class="project-desc">A 5-page Power BI dashboard giving stakeholders a clear view of regional performance, product margins, and customer segments.</p>
+                <span class="project-btn">View Project <i class="ph-duotone ph-arrow-square-out"></i></span>
             </div>
-            <div class="hero-right">
-                <div class="location-tag"><span class="location-dot"></span>Nairobi, Kenya</div>
-                <div class="hero-graphic">
-                    <div class="hero-card hero-card-1"><div class="card-label">Sales Dashboard</div><div class="card-value">5</div><div class="card-sub">Power BI Pages Built</div><div class="card-bar-row"><div class="card-bar"><div class="card-bar-fill" style="--h:80%"></div></div><div class="card-bar"><div class="card-bar-fill" style="--h:60%"></div></div><div class="card-bar"><div class="card-bar-fill" style="--h:90%"></div></div><div class="card-bar"><div class="card-bar-fill" style="--h:45%"></div></div></div></div>
-                    <div class="hero-card hero-card-2"><div class="card-label">Records Analysed</div><div class="card-value">700+</div><div class="card-sub">Across 6 product lines</div></div>
-                    <div class="hero-card hero-card-3"><div class="card-label">Countries Covered</div><div class="card-value">5</div><div class="card-sub">Regional sales performance</div></div>
-                </div>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener" class="project-card g2 fade-in">
+            <div class="project-content">
+                <h3 class="project-title">Multi-Region Sales Analysis — Excel</h3>
+                <p class="project-desc">Deep-dive into 700+ sales records across 6 product lines and 5 countries, using Pivot Tables to surface month-on-month trends.</p>
+                <span class="project-btn">View Project <i class="ph-duotone ph-arrow-square-out"></i></span>
             </div>
-        </section>
+        </a>
 
-        <section class="about-section" id="about">
-            <div><div class="section-header fade-in"><span class="section-number">01</span><h2 class="section-title">About</h2><span class="section-line"></span></div>
-            <div class="about-text fade-in"><p>I'm a digital marketer who decided to go deeper into the data side. After working in digital marketing, I kept noticing decisions were being made <strong>without really looking at what the numbers were saying.</strong></p><p>That frustrated me enough to do something — so I completed a data analytics course and got hands-on with SQL, Excel, and Power BI.</p><p>What I bring that most analysts don't is <strong>marketing context</strong>. I understand what the business is trying to do, which makes my analysis more useful.</p><p>I'm currently looking for Data Analyst or Marketing Analyst roles where I can be genuinely useful.</p></div></div>
-            <div class="about-stats fade-in"><div class="stat-item"><div class="stat-number">700+</div><div class="stat-label">Sales records analysed</div></div><div class="stat-item"><div class="stat-number">5</div><div class="stat-label">-page Power BI dashboard</div></div><div class="stat-item"><div class="stat-number">6</div><div class="stat-label">Product lines tracked</div></div><div class="stat-item"><div class="stat-number">3</div><div class="stat-label">Core tools: SQL · Excel · Power BI</div></div></div>
-        </section>
+        <a href="#" target="_blank" rel="noopener" class="project-card g3 fade-in">
+            <div class="project-content">
+                <h3 class="project-title">Business Intelligence Queries — SQL</h3>
+                <p class="project-desc">Structured SQL queries with multi-table joins, filtering, and aggregation to answer real business questions.</p>
+                <span class="project-btn">View Project <i class="ph-duotone ph-arrow-square-out"></i></span>
+            </div>
+        </a>
 
-        <section class="skills-section" id="skills"><div class="section-header fade-in"><span class="section-number">02</span><h2 class="section-title">Skills</h2><span class="section-line"></span></div>
-        <div class="skills-grid fade-in"><div class="skill-card"><span class="skill-icon"><i class="fas fa-chart-line"></i></span><div class="skill-name">Power BI</div><div class="skill-desc">Building multi-page dashboards with KPI cards, line charts, bar charts to communicate data stories clearly.</div><div class="skill-tags"><span class="skill-tag">DAX</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Data Viz</span></div></div>
-        <div class="skill-card"><span class="skill-icon"><i class="fas fa-table"></i></span><div class="skill-name">Excel</div><div class="skill-desc">Deep analysis using Pivot Tables to break down sales and profit performance by month, region, and customer segment.</div><div class="skill-tags"><span class="skill-tag">Pivot Tables</span><span class="skill-tag">Formulas</span><span class="skill-tag">Data Cleaning</span></div></div>
-        <div class="skill-card"><span class="skill-icon"><i class="fas fa-database"></i></span><div class="skill-name">SQL</div><div class="skill-desc">Writing queries with table joins and data filtering to extract specific subsets of data and answer business questions.</div><div class="skill-tags"><span class="skill-tag">Table Joins</span><span class="skill-tag">Filtering</span><span class="skill-tag">Aggregation</span></div></div>
-        <div class="skill-card"><span class="skill-icon"><i class="fas fa-chart-pie"></i></span><div class="skill-name">Marketing Analytics</div><div class="skill-desc">Understanding campaign performance, customer behaviour, and marketing ROI — giving analysis real-world relevance.</div><div class="skill-tags"><span class="skill-tag">Digital Marketing</span><span class="skill-tag">Campaign Analysis</span><span class="skill-tag">Segments</span></div></div>
-        <div class="skill-card"><span class="skill-icon"><i class="fas fa-comment-dots"></i></span><div class="skill-name">Data Storytelling</div><div class="skill-desc">Translating complex data into clear insights that non-technical audiences can act on.</div><div class="skill-tags"><span class="skill-tag">Reporting</span><span class="skill-tag">Presentations</span></div></div>
-        <div class="skill-card"><span class="skill-icon"><i class="fas fa-handshake"></i></span><div class="skill-name">Client Relations</div><div class="skill-desc">Empathetic, clear communication with clients and stakeholders — turning data findings into conversations.</div><div class="skill-tags"><span class="skill-tag">Communication</span><span class="skill-tag">Support</span></div></div></div></section>
+        <a href="#" target="_blank" rel="noopener" class="project-card g4 fade-in">
+            <div class="project-content">
+                <h3 class="project-title">Digital Marketing Analytics</h3>
+                <p class="project-desc">Applying data skills to marketing — campaign data, customer journeys, and conversion metrics, reported for decision-makers.</p>
+                <span class="project-btn">View Project <i class="ph-duotone ph-arrow-square-out"></i></span>
+            </div>
+        </a>
 
-        <section class="projects-section" id="projects"><div class="section-header fade-in"><span class="section-number">03</span><h2 class="section-title">Projects</h2><span class="section-line"></span></div>
-        <div class="projects-grid"><div class="project-card fade-in"><div class="project-num">Project 01</div><h3 class="project-title">Retail Sales Dashboard — Power BI</h3><p class="project-desc">A comprehensive 5-page Power BI dashboard for a retail dataset, giving stakeholders a clear view of business performance.</p><ul class="project-highlights"><li>Regional performance with geographic breakdowns</li><li>Product-level analysis tracking margins and volume</li><li>Customer segmentation and behaviour analysis</li><li>Executive summary for senior stakeholders</li></ul><div class="project-tech"><span class="tech-pill">Power BI</span><span class="tech-pill">DAX</span><span class="tech-pill">Dashboard Design</span></div></div>
-        <div class="project-card fade-in"><div class="project-num">Project 02</div><h3 class="project-title">Multi-Region Sales Analysis — Excel</h3><p class="project-desc">Deep-dive analysis of 700 sales records across 6 product lines and 5 countries to identify performance trends.</p><ul class="project-highlights"><li>Analysed 700 records across 5 countries</li><li>Pivot Tables for month-on-month tracking</li><li>Regional and customer segment breakdowns</li><li>Sales vs. profit analysis per product line</li></ul><div class="project-tech"><span class="tech-pill">Excel</span><span class="tech-pill">Pivot Tables</span><span class="tech-pill">Data Analysis</span></div></div>
-        <div class="project-card fade-in"><div class="project-num">Project 03</div><h3 class="project-title">Business Intelligence Queries — SQL</h3><p class="project-desc">Wrote structured SQL queries to extract and analyse business data — answering specific business questions.</p><ul class="project-highlights"><li>Multi-table JOINs to merge related datasets</li><li>WHERE and HAVING for precise filtering</li><li>Aggregations to surface trends</li><li>Translating business questions into queries</li></ul><div class="project-tech"><span class="tech-pill">SQL</span><span class="tech-pill">Table Joins</span><span class="tech-pill">Business Intelligence</span></div></div>
-        <div class="project-card fade-in"><div class="project-num">Project 04</div><h3 class="project-title">Digital Marketing Analytics</h3><p class="project-desc">Applying data skills to marketing — understanding campaign data, customer journeys, and conversion metrics.</p><ul class="project-highlights"><li>Marketing context applied to analytical work</li><li>Understanding customer segment behaviour</li><li>Bridging technical findings with business strategy</li><li>Clear reporting for decision-makers</li></ul><div class="project-tech"><span class="tech-pill">Marketing Analytics</span><span class="tech-pill">Digital Marketing</span><span class="tech-pill">Reporting</span></div></div></div></section>
+        <a href="#" target="_blank" rel="noopener" class="project-card g5 fade-in">
+            <div class="project-content">
+                <h3 class="project-title">Additional Projects</h3>
+                <p class="project-desc">More work hosted on Tableau Public, covering a wider range of analytical techniques beyond what's showcased here.</p>
+                <span class="project-btn">View All <i class="ph-duotone ph-arrow-square-out"></i></span>
+            </div>
+        </a>
+    </div>
 
-        <section class="experience-section" id="experience"><div class="section-header fade-in"><span class="section-number">04</span><h2 class="section-title">Experience &amp; Education</h2><span class="section-line"></span></div>
-        <div class="timeline fade-in"><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Mar 2026 — Present</div><div class="timeline-role">Data Analyst</div><div class="timeline-company">Self-initiated Projects · Hybrid</div><div class="timeline-body">Building a project portfolio after completing data analytics course, working on real datasets and deriving genuine business insight.</div></div>
-        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Feb 2026 — May 2026</div><div class="timeline-role">Data Analytics Programme</div><div class="timeline-company">Moringa School · Nairobi, Kenya</div><div class="timeline-body">Hands-on programme covering Excel, SQL, and Power BI — building dashboards and presenting findings to help businesses make better decisions.</div></div>
-        <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-date">Prior Experience</div><div class="timeline-role">Digital Marketing Professional</div><div class="timeline-company">Digital Marketing · Kenya</div><div class="timeline-body">Worked in digital marketing, identifying gaps in how data was used to inform decisions. Provides business and marketing context that makes analytical work actionable.</div></div></div></section>
+    <!-- ============ RESUME ============ -->
+    <div class="section-label fade-in" id="resume">Resume</div>
+    <a href="#" target="_blank" rel="noopener" class="project-card g4 fade-in" style="min-height:150px;">
+        <div class="project-content" style="max-width:100%;">
+            <h3 class="project-title">Download My Resume</h3>
+            <p class="project-desc">PDF · Placeholder link — replace with your hosted resume file.</p>
+            <span class="project-btn">View Resume <i class="ph-duotone ph-arrow-square-out"></i></span>
+        </div>
+    </a>
 
-        <section class="rec-section"><div class="section-header fade-in"><span class="section-number">05</span><h2 class="section-title">Recommendation</h2><span class="section-line"></span></div>
-        <div class="rec-card fade-in"><p class="rec-quote">Wanjiru impressed me with her professionalism and dedication. She has a natural talent for customer support, consistently providing clear communication and quick resolutions. Her ability to handle client concerns with empathy and efficiency makes her a valuable asset to any team.</p><div class="rec-name">Caroline Kinyingi</div><div class="rec-role">Global Client Relations Leader · Founder, @SkillYu</div></div></section>
+    <!-- ============ CERTIFICATIONS ============ -->
+    <div class="section-label fade-in" id="certifications">Certifications</div>
+    <div class="cert-grid fade-in">
+        <span class="cert-badge">
+            <span class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.6 15.3 18.9 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.5 6.5 29.5 4 24 4c-7.7 0-14.4 4.4-17.7 10.7z"/><path fill="#4CAF50" d="M24 44c5.4 0 10.3-2.1 14-5.5l-6.5-5.5c-2 1.5-4.6 2.4-7.5 2.4-5.2 0-9.6-3.5-11.2-8.3l-6.6 5.1C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.3 4.3-4.3 5.7l6.5 5.5C39.9 37 44 31 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg>
+            </span>
+            Google Data Analytics
+        </span>
+        <span class="cert-badge">
+            <span class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 23 23"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="12" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="12" width="10" height="10" fill="#00A4EF"/><rect x="12" y="12" width="10" height="10" fill="#FFB900"/></svg>
+            </span>
+            Microsoft Power BI
+        </span>
+        <span class="cert-badge">
+            <span class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#052FAD"/><rect x="5" y="7" width="14" height="2.3" fill="#fff"/><rect x="5" y="10.9" width="14" height="2.3" fill="#fff"/><rect x="5" y="14.8" width="14" height="2.3" fill="#fff"/></svg>
+            </span>
+            IBM Data Analyst
+        </span>
+        <span class="cert-badge">
+            <span class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#FF7A59"/><circle cx="12" cy="6.3" r="2.1" fill="#fff"/><path d="M12 8.4v4.6" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16" r="3" fill="none" stroke="#fff" stroke-width="1.8"/></svg>
+            </span>
+            HubSpot Marketing
+        </span>
+    </div>
 
-        <section class="contact-section" id="contact"><h2 class="contact-headline fade-in">Let's work <em>together</em></h2><p class="contact-sub fade-in">I'm open to Data Analyst and Marketing Analyst roles — on-site, hybrid, or remote. Based in Nairobi, available globally.</p>
-        <div class="contact-links fade-in"><a href="https://www.linkedin.com/in/wanjiru-thiggah-8a6a2432a/" target="_blank" class="contact-link"><i class="fab fa-linkedin-in"></i> LinkedIn Profile</a><a href="mailto:wanjiru@email.com" class="contact-link"><i class="fas fa-envelope"></i> Email Me</a><span class="contact-link"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span></div></section>
-    </main>
+    <!-- ============ CONTACT ============ -->
+    <div class="section-label fade-in" id="contact">Contact</div>
+    <p class="contact-text fade-in">Have a role, project, or question in mind? Use the links below to reach out or stay in touch.</p>
+    <a href="mailto:wanjiru@email.com" class="pill pill-solid fade-in">Get in Touch <i class="ph-duotone ph-arrow-square-out" style="color:#fff;"></i></a>
+    <div class="social-row fade-in">
+        <a href="https://www.linkedin.com/in/wanjiru-thiggah-8a6a2432a/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 448 512" fill="currentColor" width="17" height="17"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+            <svg viewBox="0 0 496 512" fill="currentColor" width="17" height="17"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8z"/></svg>
+        </a>
+        <a href="mailto:wanjiru@email.com" class="social-icon" aria-label="Email">
+            <svg viewBox="0 0 512 512" fill="currentColor" width="17" height="17"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+        </a>
+    </div>
 
-    <footer><span class="footer-name">Wanjiru Thiggah</span><span>Data Analyst · Digital Marketing · Nairobi, Kenya</span><span>Open to Work · 2026</span></footer>
+    <button class="back-to-top" id="backToTop"><i class="ph-duotone ph-arrow-up"></i> Top</button>
+</div>
 
-    <button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+<footer>Wanjiru Thiggah · Data Analyst · Nairobi, Kenya</footer>
 
-    <script>
-        (function() {
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const navLinks = document.getElementById('navLinks');
-            const backToTop = document.getElementById('backToTop');
-            const fadeElements = document.querySelectorAll('.fade-in');
-            const navLinkItems = document.querySelectorAll('.nav-links a');
-            
-            function closeMenu() { navLinks.classList.remove('open'); hamburgerBtn?.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; }
-            function openMenu() { navLinks.classList.add('open'); hamburgerBtn?.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; }
-            
-            hamburgerBtn?.addEventListener('click', () => { navLinks.classList.contains('open') ? closeMenu() : openMenu(); });
-            document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => closeMenu()));
-            
-            function updateBackToTop() { backToTop?.classList.toggle('visible', window.scrollY > 500); }
-            backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-            
-            const observer = new IntersectionObserver((entries) => { entries.forEach((entry, i) => { if (entry.isIntersecting) { setTimeout(() => entry.target.classList.add('visible'), i * 60); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
-            fadeElements.forEach(el => observer.observe(el));
-            
-            window.addEventListener('scroll', updateBackToTop);
-            updateBackToTop();
-        })();
-    </script>
+<script>
+(function() {
+    const backToTop = document.getElementById('backToTop');
+    backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), i * 50);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
 </body>
 </html>
